@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sharedbackup4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/sharedbackup_jar/test5/sharedbackup.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

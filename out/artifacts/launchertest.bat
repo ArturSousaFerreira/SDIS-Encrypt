@@ -1,0 +1,1 @@
+java -jar McastSnooper.jar log.txt 224.0.0.0:8001 224.0.0.0:8002 224.0.0.0:8003

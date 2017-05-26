@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="artifacts">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/distributed-backup-service.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/McastSnooper.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
