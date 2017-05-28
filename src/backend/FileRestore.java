@@ -78,6 +78,8 @@ public class FileRestore {
         for (int i = 0; i<fileToRestore.getChunkNR();i++) {
             ChunkData chunkData = ChunkRestore.getInstance().requestChunk(fileToRestore.getFileId(),i);
             if(chunkData != null){
+                //TODo: passar chunk data pelo decrypt
+                chunkData.setData(chunkData.decrypt(chunkData.getData()));
                 receivedChunks.add(chunkData);
             }
         }

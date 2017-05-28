@@ -34,7 +34,8 @@ public class ChunkBackup {
 				+ chunk.getWantedReplicationDegree()
 				+ MulticastServer.CRLF + MulticastServer.CRLF;
 
-		byte[] data = chunk.getData();
+		//TODO ::encriptar data
+		byte[] data = chunk.encrypt(chunk.getData());
 
 		byte[] message = new byte[header.length() + data.length];
 		System.out.println("messageCB = " + message.length);
