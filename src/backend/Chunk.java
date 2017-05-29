@@ -185,14 +185,21 @@ public class Chunk implements Serializable {
     //Encrypt
     public byte[] encrypt(byte[] datatoencrypt) {
 
-        byte[] key = "sdisssssssssssss".getBytes();
+        byte[] key = new byte[0];
+        byte[] iv = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        IvParameterSpec ivspec = new IvParameterSpec(iv);
+        try {
+            key = "sdisssssssssssss".getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         byte[] encryptedData = new byte[0];
         Cipher c = null;
 
         try {
             c = Cipher.getInstance("AES/CBC/PKCS5Padding");
             SecretKeySpec k = new SecretKeySpec(key, "AES");
-            c.init(Cipher.ENCRYPT_MODE, k);
+            c.init(Cipher.ENCRYPT_MODE, k,ivspec);
             encryptedData = c.doFinal(datatoencrypt);
 
         } catch (Exception e) {
@@ -210,14 +217,12 @@ public class Chunk implements Serializable {
         byte[] key = "sdisssssssssssss".getBytes();
         byte[] data = new byte[encryptedData.length];
         Cipher c = null;
-
-        byte[] asB64 = new byte[0];
         try {
             c = Cipher.getInstance("AES/CBC/PKCS5Padding");
             SecretKeySpec k = new SecretKeySpec(key, "AES");
             c.init(Cipher.DECRYPT_MODE, k, ivspec);
             data = c.doFinal(encryptedData);
-            asB64 = Base64.getEncoder().encodeToString(data).getBytes("utf-8");
+           // asB64 = Base64.getEncoder().encodeToString(data).getBytes("utf-8");
 
 
         } catch (Exception e) {
@@ -225,7 +230,7 @@ public class Chunk implements Serializable {
         }
 
 
-        return asB64;
+        return data;
 
     }
 
